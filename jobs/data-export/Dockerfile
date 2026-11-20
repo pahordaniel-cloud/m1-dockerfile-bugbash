@@ -1,6 +1,9 @@
 FROM amazon/aws-cli:2.17.0
 
-LABEL org.opencontainers.image.source="https://github.com/jesse-bugbash/dockerfile-fixtures"
+LABEL org.opencontainers.image.source="https://github.com/pahordaniel-cloud/m1-dockerfile-bugbash"
+
+# Image source labels, added by Datadog.
+LABEL com.datadoghq.image.source_path="jobs/data-export/Dockerfile"
 
 RUN yum install -y jq gzip && yum clean all
 COPY export.sh /usr/local/bin/export.sh

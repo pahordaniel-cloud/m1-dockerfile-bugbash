@@ -11,6 +11,11 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
 FROM node:20-alpine AS runtime
+
+# Image source labels, added by Datadog.
+LABEL org.opencontainers.image.source="https://github.com/pahordaniel-cloud/m1-dockerfile-bugbash"
+LABEL com.datadoghq.image.source_path="services/storefront/Dockerfile"
+
 WORKDIR /app
 ENV NODE_ENV=production
 RUN addgroup -S nodejs && adduser -S nextjs -G nodejs

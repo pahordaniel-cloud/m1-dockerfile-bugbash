@@ -1,6 +1,10 @@
 # Repo tooling image: linters, codegen and pre-commit hooks used by CI.
 FROM python:3.12-slim-bookworm
 
+# Image source labels, added by Datadog.
+LABEL org.opencontainers.image.source="https://github.com/pahordaniel-cloud/m1-dockerfile-bugbash"
+LABEL com.datadoghq.image.source_path="Dockerfile"
+
 ENV PIP_NO_CACHE_DIR=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1
 

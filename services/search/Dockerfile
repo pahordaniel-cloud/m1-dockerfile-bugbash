@@ -12,6 +12,11 @@ COPY . .
 RUN cargo build --release --bin search
 
 FROM debian:bookworm-slim AS runtime
+
+# Image source labels, added by Datadog.
+LABEL org.opencontainers.image.source="https://github.com/pahordaniel-cloud/m1-dockerfile-bugbash"
+LABEL com.datadoghq.image.source_path="services/search/Dockerfile"
+
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /app/target/release/search /usr/local/bin/search
 EXPOSE 7700

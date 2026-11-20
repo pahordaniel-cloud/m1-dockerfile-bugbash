@@ -1,5 +1,9 @@
 FROM ruby:3.3-slim
 
+# Image source labels, added by Datadog.
+LABEL org.opencontainers.image.source="https://github.com/pahordaniel-cloud/m1-dockerfile-bugbash"
+LABEL com.datadoghq.image.source_path="services/notifications/Dockerfile"
+
 RUN apt-get update -qq \
  && apt-get install -y --no-install-recommends build-essential libpq-dev \
  && rm -rf /var/lib/apt/lists/*
