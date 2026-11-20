@@ -1,6 +1,10 @@
 # syntax=docker/dockerfile:1.7
 FROM ubuntu:24.04
 
+# Image source labels, added by Datadog.
+LABEL org.opencontainers.image.source="https://github.com/pahordaniel-cloud/m1-dockerfile-bugbash"
+LABEL com.datadoghq.image.source_path="tools/dev-shell/Dockerfile"
+
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update && apt-get install -y --no-install-recommends \
