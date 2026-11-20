@@ -11,6 +11,10 @@ RUN poetry install --only main --no-root
 FROM python:3.12-slim
 LABEL maintainer="catalog-team@example.com"
 
+# Image source labels, added by Datadog.
+LABEL org.opencontainers.image.source="https://github.com/pahordaniel-cloud/m1-dockerfile-bugbash"
+LABEL com.datadoghq.image.source_path="services/catalog/Dockerfile"
+
 WORKDIR /app
 COPY --from=builder /app/.venv /app/.venv
 COPY catalog ./catalog

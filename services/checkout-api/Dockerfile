@@ -8,6 +8,11 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags="-s -w" -o /out/checkout-api ./cmd/checkout-api
 
 FROM gcr.io/distroless/static-debian12:nonroot
+
+# Image source labels, added by Datadog.
+LABEL org.opencontainers.image.source="https://github.com/pahordaniel-cloud/m1-dockerfile-bugbash"
+LABEL com.datadoghq.image.source_path="services/checkout-api/Dockerfile"
+
 COPY --from=build /out/checkout-api /checkout-api
 EXPOSE 8080
 USER nonroot:nonroot
