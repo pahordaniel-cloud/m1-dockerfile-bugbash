@@ -10,6 +10,10 @@ LABEL org.opencontainers.image.title="payments" \
       org.opencontainers.image.vendor="Example Shop" \
       org.opencontainers.image.licenses="Apache-2.0"
 
+# Image source labels, added by Datadog.
+LABEL org.opencontainers.image.source="https://github.com/pahordaniel-cloud/m1-dockerfile-bugbash"
+LABEL com.datadoghq.image.source_path="services/payments/Dockerfile"
+
 RUN useradd --system --uid 10001 payments
 WORKDIR /opt/payments
 COPY --from=build /build/target/payments-*.jar app.jar

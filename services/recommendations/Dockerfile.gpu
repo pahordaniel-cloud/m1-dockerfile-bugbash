@@ -1,6 +1,10 @@
 ARG CUDA_VERSION=12.4.1
 FROM nvidia/cuda:${CUDA_VERSION}-cudnn-runtime-ubuntu22.04
 
+# Image source labels, added by Datadog.
+LABEL org.opencontainers.image.source="https://github.com/pahordaniel-cloud/m1-dockerfile-bugbash"
+LABEL com.datadoghq.image.source_path="services/recommendations/Dockerfile.gpu"
+
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
  && apt-get install -y --no-install-recommends python3.11 python3-pip \
